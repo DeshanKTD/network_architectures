@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 
-from network_architectures.networks.auto_encoder.decoder_3d import Decoder3D
-from network_architectures.networks.auto_encoder.encoder_3d import Encoder3D
+from network_architectures.networks.auto_encoder.basic.decoder_3d import Decoder3D
+from network_architectures.networks.auto_encoder.basic.encoder_3d import Encoder3D
 
 class AutoEncoder(nn.Module):
     def __init__(self, in_channels=1, out_channels=1):

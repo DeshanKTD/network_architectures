@@ -7,11 +7,11 @@ class Discriminator3D(nn.Module):
         super(Discriminator3D, self).__init__()
         
         self.model = nn.Sequential(
-            ConvBlock3D(in_channels,base_features,kernel_size=4, stride=1, padding=1,activation='leaky_relu'),
+            ConvBlock3D(in_channels,base_features,kernel_size=4, stride=2, padding=1,activation='leaky_relu'),
+            # ConvBlock3D(base_features, base_features * 2, kernel_size=4, stride=2, padding=1, activation='leaky_relu', use_batch_norm=True),
             ConvBlock3D(base_features, base_features * 2, kernel_size=4, stride=2, padding=1, activation='leaky_relu', use_batch_norm=True),
-            ConvBlock3D(base_features * 2, base_features * 4, kernel_size=4, stride=1, padding=1, activation='leaky_relu', use_batch_norm=True),
-            ConvBlock3D(base_features * 4, base_features * 8, kernel_size=4, stride=2, padding=1, activation='leaky_relu', use_batch_norm=True),
-            ConvBlock3D(base_features * 8, 1, kernel_size=4, stride=1, padding=1),
+            # ConvBlock3D(base_features * 4, base_features * 8, kernel_size=4, stride=2, padding=1, activation='leaky_relu', use_batch_norm=True),
+            ConvBlock3D(base_features * 2, 1, kernel_size=4, stride=1, padding=1),
             nn.Sigmoid()
         )
         
